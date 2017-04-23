@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <meta name="author" content="Anônimo000">
+  <title>Aparecendo com javascript</title>
+  <style>
+   html {
+     margin: 0;
+     padding: 0;
+   }
+
+   body {
+     margin: 0;
+   }
+
+   video {
+     min-width: 100%;
+     min-height: 100vh;
+     top: 50%;
+     left: 50%;
+     position: fixed;
+     z-index: -1;
+     transform: translateX(-50%) translateY(-50%);;
+     transition-duration: 2s
+   }
+
+   .fade-out {
+     opacity: 0
+   }
+   .fullscreen {
+     min-width: 100%;
+     min-height: 100vh;
+     z-index: -2;
+     position: fixed;
+     background-image: url('background.jpg');
+     background-size: cover;
+     background-repeat: no-repeat;
+     filter: grayscale(10);
+ }
+   h1 {
+     color: #fff;
+     text-align: center;
+   }
+
+   .cima {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100vh
+   }
+  </style>
+</head>
+
+  <body>
+
+    <video id="video" class="video" autoplay>
+      <source src="video.mp4" type="video/mp4">
+        Seu navegador não suporta a TAG vídeo
+    </video>
+
+    <div class="fullscreen">
+    </div>
+
+    <div class="cima">
+      <h1>Hello World</h1>
+    </div>
+
+    <script type="text/javascript">
+    videoPlayer = document.getElementById('video');
+    videoPlayer.muted = true;
+
+    videoPlayer.addEventListener("ended", function()  {
+      videoPlayer.classList.add('fade-out');
+    })
+    </script>
+  </body>
+</html>
